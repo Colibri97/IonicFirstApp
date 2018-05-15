@@ -7,8 +7,78 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button ion-button icon-left (click)="buttonClick()">
+    <ion-icon name="trash"></ion-icon>
+    mon bouton
+  </button>
+  <button ion-button navPush="list-page">Afficher la page </button>
+
+  <p>Vous avez cliqué {{ numberOfClicks }} fois </p>
+
+  <p>{{name}}</p>
+
+  <ion-list no-lines [hidden]="! visible">
+    <ion-list-header>Fleurs</ion-list-header>
+
+    <ion-item>
+      <ion-label>Langages</ion-label>
+      <ion-select multiple="true">
+        <ion-option>Java</ion-option>
+        <ion-option>PHP</ion-option>
+        <ion-option>Python</ion-option>
+        <ion-option selected>C++</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Votre nom</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>Orchidée
+      <ion-icon name="trash" item-right></ion-icon>
+      <ion-avatar item-right>
+        <img src="/assets/imgs/orchidee.jpg">
+      </ion-avatar>
+    </ion-item>
+
+    <ion-item-sliding>
+      <ion-item>Alamanda
+        <!-- <ion-icon name="trash" item-right></ion-icon>-->
+        <ion-avatar item-right>
+          <img src="/assets/imgs/alamanda.png">
+        </ion-avatar>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item>Fleur du paradis
+      <ion-icon name="trash" item-right></ion-icon>
+      <ion-avatar item-right>
+        <img src="/assets/imgs/fleurparadis.jpg">
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+
+  <ion-item-group>
+    <ion-item-divider>A</ion-item-divider>
+    <ion-item>Alamanda</ion-item>
+    <ion-item-divider>F</ion-item-divider>
+    <ion-item>Fleur du paradis</ion-item>
+    <ion-item-divider>O</ion-item-divider>
+    <ion-item>Orchidée</ion-item>
+
+  </ion-item-group>
+
 </ion-content>
+
+
+<ion-footer padding>
+  copywrite me
+</ion-footer>
