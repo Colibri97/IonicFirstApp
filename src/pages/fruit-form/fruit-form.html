@@ -14,29 +14,25 @@
 
 
 <ion-content padding>
-<ion-list>
-  <ion-item>
-    <ion-label floating>nom</ion-label>
-    <ion-input [(ngModel)]="name"></ion-input>
-  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>nom</ion-label>
+      <ion-input [(ngModel)]="fruit.name"></ion-input>
+    </ion-item>
 
     <ion-item>
       <ion-label floating>origine</ion-label>
-      <ion-input [(ngModel)]="origine"></ion-input>
+      <ion-input [(ngModel)]="fruit.origin"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Prix</ion-label>
-      <ion-input [(ngModel)]="prix"></ion-input>
+      <ion-input type="number" [(ngModel)]="fruit.price"></ion-input>
     </ion-item>
-
-  </ion-list>
-
-  <button ion-button icon-left (click)="Valider()">
-      <ion-icon name="trash"></ion-icon>
-      Valider
-    </button>
-
+<ion-item>
+  <button ion-button (click)="validateFruit()" >Valider</button>
+</ion-item>
+</ion-list>
 
 
 </ion-content>

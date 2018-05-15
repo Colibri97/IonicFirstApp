@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the FruitFormPage page.
@@ -8,18 +8,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage({ name:'fruit-form'})
+@IonicPage({ name: 'fruit-form' })
 @Component({
   selector: 'page-fruit-form',
   templateUrl: 'fruit-form.html',
 })
 export class FruitFormPage {
 
-  public name:string = "Orange";
-  public origine:string = "Espagne";
-  public prix:number = 5;
- 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public fruit = {
+    name: "",
+    origin: "France",
+    price: 0,
+  }
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public events:Events) {
+
+  }
+
+  validateFruit(){
+    this.events.publish("event.fruit.new", JSON.stringify(this.fruit));
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {

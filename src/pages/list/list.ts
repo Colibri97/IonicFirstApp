@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the ListPage page.
@@ -25,8 +25,17 @@ export class ListPage {
 
   public showReorder = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public events: Events) {
+
+      events.subscribe("event.fruit.new", (data)=>{
+        let newFruit = JSON.parse(data);
+        this.fruitsList.push (newFruit);
+
+      })
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListPage');
@@ -34,10 +43,6 @@ export class ListPage {
 
   deleteFruit(index){
     this.fruitsList.splice(index, 1);
-  }
-
-  goToListPage(){
-    this.navCtrl.push("fruit-form");
   }
 
 }
